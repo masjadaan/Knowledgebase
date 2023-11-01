@@ -1,0 +1,17 @@
+# Bootabl USB for Kali on Kali machine
+* * *
+
+- insert USB stick and determin its name
+```
+lsblk
+```
+- Format the USB stick
+```
+umount /dev/sda
+sudo mkfs.fat -F 32 /dev/sda
+```
+
+- write ISO image to USB
+```
+sudo dd if=kali-linux-2023.1-installer-amd64.iso of=/dev/sda bs=512k status=progress
+```
