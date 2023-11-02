@@ -5,10 +5,7 @@ Welcome to my knowledge repository! Here, I have documented my understanding and
 ## Table of Contents
 
 1. [Container](https://github.com/masjadaan/Knowledgebase/tree/main/Containers)
-1. [Network Protocols]([#network-protocols](https://github.com/masjadaan/Knowledgebase/tree/main/Network_Protocols))
-2. [Penetration Testing]([#penetration-testing](https://github.com/masjadaan/Knowledgebase/tree/main/Penetration_Testing))
-4. [Reverse Engineering]([#reverse-engineering](https://github.com/masjadaan/Knowledgebase/tree/main/Reverse_Engineering))
-5. [Contributing](#contributing)
+
 
 
 ## Contributing
