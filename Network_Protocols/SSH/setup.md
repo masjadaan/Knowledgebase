@@ -6,7 +6,7 @@ service --status-all | grep -i ssh
 ```
 
 ## Steps
-### <span style="color: #7f7fff">Remote host</span>
+### Remote Host
 - You need OpenSSH Server
 ```
 apt-get update
@@ -15,7 +15,7 @@ systemctl enable ssh
 systemctl start ssh
 systemctl status ssh
 nano /etc/ssh/sshd_config
-	Port 2020
+	Port PortNr
 	PubkeyAuthentication yes
 	AuthorizedKeysFile      .ssh/authorized_keys
 	PasswordAuthentication no
@@ -23,26 +23,25 @@ nano /etc/ssh/sshd_config
 systemctl restart sshd
 ```
 
-### <span style="color: #7f7f00">Local host</span>
+### Local Host
 - You need OpenSSH Client
 - Generate the key pairs
 ```
 ssh-keygen -t rsa -b 4096
-# /home/mj/.ssh/rsa_homeServer
-# because I changed the default name of the keys, I have to use -i
-ssh-copy-id -p 2020 -i rsa_homeServer remote@serverIP
+# use -i to specify the location of private key
+ssh-copy-id -p PortNr -i /path/to/privateKey remote@serverIP
 
 # connect
-ssh -p 2020 -i ~/.ssh/rsa_homeServer remote@serverIP
+ssh -p PortNr -i ~/.ssh/path/to/privateKey remote@serverIP
 ```
 - if you want to use the config file
 ```
-# my server at home
+# Specify a remote server
 Host server
-        HostName 192.168.178.29
-        Port 2020
-        user msbit
-        IdentityFile /home/mj/.ssh/rsa_homeServer
+        HostName ServerIP
+        Port PortNr
+        user userName
+        IdentityFile ~/.ssh/path/to/privateKey
         StrictHostKeyChecking no
         UserKnownHostsFile /dev/null
 
